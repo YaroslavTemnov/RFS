@@ -1,0 +1,5 @@
+n = [x for x in input().split()]
+
+n = list(filter(lambda x: int(x) % 2 == 0, n))
+
+print(n)
