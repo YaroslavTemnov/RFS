@@ -1,7 +1,6 @@
 import psycopg2
 from psycopg2.extras import DictCursor
 
-
 def get_info():
     cursor = conn.cursor(cursor_factory=DictCursor)
     while True:
@@ -39,6 +38,21 @@ def get_info():
             continue
     cursor.close()
 
+def search():
+    cursor = conn.cursor(cursor_factory=DictCursor)
+    while True:
+        info = input("Enter a name or a number of the contact that you want to find or write exit to exit:")
+        if info == "exit":
+            break
+        else:
+            sql = f"SELECT * FROM contacts WHERE name LIKE '%{info}%' OR number LIKE '%{info}%'" 
+            cursor.execute(sql)
+            result = cursor.fetchall()
+            for contact in result:
+                print(f"name: {contact["name"]} --- number: {contact["number"]}")
+            break
+    cursor.close()
+
 
 
 def add_contact():
@@ -64,13 +78,13 @@ def add_contact():
 def delete_contact():
     def_run = True
     while def_run:
-            name = input("Enter the name of contact that you want to delete: ")
-            sql = "DELETE FROM contacts WHERE name = %s"
+            name = input("Enter the name or number of the contact that you want to delete: ")
+            sql = "DELETE FROM contacts WHERE name = %s OR number = %s"
             while True:
                 print(f"Are you sure that you want to delete this contact: {name}?")
                 correct = input("y/n: ")
                 if correct == "y":
-                    cursor.execute(sql, (name,))
+                    cursor.execute(sql, (name, name))
                     conn.commit()
                     print("Deleted sucsessfully")
                     def_run = False
@@ -116,11 +130,24 @@ except:
 cursor = conn.cursor(cursor_factory=DictCursor)
 cursor.execute("SELECT * FROM contacts")
 result = cursor.fetchall()
-run = True
+table_name = "contacts"
+csv = "contacts.csv"
+
+sql = f"""
+    COPY contacts (name, number) 
+    FROM STDIN 
+    WITH (FORMAT CSV, HEADER, DELIMITER ',', QUOTE '"', ESCAPE '\\')
+    """
+with open(csv, 'r', ) as f:
+    cursor.copy_expert(sql, f)
+
+conn.commit()
 
 while True:
-    operation = input("get info / update contact / delete contact / add contact / exit : ")
-    if operation == "get info":
+    operation = input("get info / search / update contact / delete contact / add contact / exit : ")
+    if operation == "search":
+        search()
+    elif operation == "get info":
         get_info()
     elif operation == "add contact":
         add_contact()
@@ -132,3 +159,6 @@ while True:
         update_contact()
     else:
         print("please, write correctly")
+
+conn.close()
+cursor.close()
