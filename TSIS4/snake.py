@@ -1,9 +1,6 @@
 import pygame, random, json, os
 from pygame.locals import *
-import psycopg2
 from connect import connect
-from psycopg2.extras import DictCursor
-
 
 
 SETTINGS_FILE = "settings.json"
