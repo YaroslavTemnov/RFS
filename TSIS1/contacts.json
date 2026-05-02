@@ -1,0 +1,90 @@
+[
+  {
+    "id": 417,
+    "name": "Spongebob",
+    "number": "1234567",
+    "email": null,
+    "birthday": null,
+    "group_id": null
+  },
+  {
+    "id": 418,
+    "name": "Patrik",
+    "number": "987654321",
+    "email": null,
+    "birthday": null,
+    "group_id": null
+  },
+  {
+    "id": 419,
+    "name": "Yaroslav",
+    "number": "+77767539251",
+    "email": "arosl@gmail.com",
+    "birthday": "2006-01-07",
+    "group_id": 1
+  },
+  {
+    "id": 420,
+    "name": "Misha Beiblade",
+    "number": "+77473640635",
+    "email": "kurumi@mail.com",
+    "birthday": "2006-11-20",
+    "group_id": 1
+  },
+  {
+    "id": 421,
+    "name": "Leha Vodolaz",
+    "number": "+77777777777",
+    "email": "somee@mail.ru",
+    "birthday": "2000-10-20",
+    "group_id": 2
+  },
+  {
+    "id": 422,
+    "name": "Mister Beast",
+    "number": "+1(248)477-6937",
+    "email": "bistermeast@gmail.com",
+    "birthday": "1998-05-07",
+    "group_id": 2
+  },
+  {
+    "id": 423,
+    "name": "Alexei Navalny",
+    "number": "8-800-555-35-35",
+    "email": "normalny@mail.ru",
+    "birthday": "1976-06-04",
+    "group_id": 2
+  },
+  {
+    "id": 424,
+    "name": "Vadim",
+    "number": "+77476386916",
+    "email": "computer_master@gmail.com",
+    "birthday": "2006-03-19",
+    "group_id": 2
+  },
+  {
+    "id": 425,
+    "name": "Harry Potter",
+    "number": "+34567890",
+    "email": "the_boy_who_lived@hogwarts.com",
+    "birthday": "1997-06-26",
+    "group_id": 3
+  },
+  {
+    "id": 426,
+    "name": "Naruto Uzumaki",
+    "number": "676767",
+    "email": "futurehokage@mail.konoha",
+    "birthday": "2000-10-10",
+    "group_id": 3
+  },
+  {
+    "id": 427,
+    "name": "Timur",
+    "number": "+76767676767",
+    "email": "agibkamaradiidbiazah@gmail.com",
+    "birthday": "2006-03-20",
+    "group_id": 1
+  }
+]
